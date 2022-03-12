@@ -61,7 +61,6 @@ class _HomeState extends State<Home> {
         body: StreamBuilder<DocumentSnapshot>(
             stream: Database().userStream(controller.uid),
             builder: (context, snapshot) {
-              print(snapshot.data?.data());
               return SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
                 child: Column(
@@ -133,7 +132,7 @@ class _HomeState extends State<Home> {
                                             tween: Tween<double>(
                                                 begin: 0.0, end: 0.8),
                                             duration: const Duration(
-                                                milliseconds: 3500),
+                                                milliseconds: 1500),
                                             builder: (context, value, _) =>
                                                 CircularProgressIndicator(
                                                   color: Color(0xff3c3f69),

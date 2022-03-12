@@ -59,6 +59,14 @@ class Database {
     return _firestore.collection("users").doc(uid).snapshots();
   }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> leaderboardStream() {
+    return _firestore
+        .collection("users")
+        .orderBy('levelXp', descending: true)
+        .limit(10)
+        .snapshots();
+  }
+
   Future<QuerySnapshot<Map<String, dynamic>>> sports() {
     return _firestore.collection("sports").get();
   }

@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:loc/Auth/login.dart';
 import 'package:loc/Controllers/db.dart';
 
 class AppController extends GetxController {
@@ -47,8 +49,8 @@ class AppController extends GetxController {
   void allSports() {
     try {
       Database().sports().then((value) {
-        for (int i = 0; i < value.docs.length;i++){
-            sports.add(value.docs[i].data());
+        for (int i = 0; i < value.docs.length; i++) {
+          sports.add(value.docs[i].data());
         }
         update();
       });
@@ -92,8 +94,10 @@ class AppController extends GetxController {
   //   }
   // }
 
-  // Future<void> signOut() async {
-  //   FirebaseAuth.instance.signOut();
-  //   _googleSignIn.signOut();
-  // }
+  Future<void> signOut() async {
+    FirebaseAuth.instance.signOut();
+    Database().signOutGoogle();
+    box.erase();
+    Get.offAll(Login());
+  }
 }

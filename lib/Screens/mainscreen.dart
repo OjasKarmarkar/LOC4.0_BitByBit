@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:loc/Screens/Home.dart';
+import 'package:loc/Screens/Leaderboard.dart';
 import 'package:loc/Screens/Profile.dart';
 import 'package:loc/Widgets/wrapper.dart';
 
@@ -30,7 +31,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
     super.dispose();
   }
 
-  final List<Widget> _listTabs = [Home(), Home(), Profile()];
+  final List<Widget> _listTabs = [Home(), LeaderBoard(), Profile()];
 
   Widget _bottomNavigationBar() {
     return Obx(() => BottomNavigationBar(
