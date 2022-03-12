@@ -1,9 +1,9 @@
 import { AreaChart, Area, Tooltip, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 
-function Chart() {
+function Chart(props) {
 
-    const data = [{name: 'Page A', uv: 400}, {name: 'Page A', uv: 800}, {name: 'Page A', uv: 300}, {name: 'Page A', uv: 900}, ];
+    const data = props.data; //[{name: 'Page A', uv: 400}, {name: 'Page A', uv: 800}, {name: 'Page A', uv: 300}, {name: 'Page A', uv: 900}, ];
     return(
     <AreaChart width={800} height={250} data={data}
         margin={{ top: 10, right: 30, left: -10, bottom: 0 }}>
@@ -21,8 +21,7 @@ function Chart() {
         <YAxis axisLine={false} tickLine={false} />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
-        <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-        <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+        <Area type="monotone" dataKey="hours" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
     </AreaChart>
     )};
 export default Chart

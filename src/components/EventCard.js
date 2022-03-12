@@ -1,7 +1,6 @@
 import React from "react";
 
 function EventCard(props) {
-  console.log(props);
   return (
     <div className="border-2 rounded-xl hover:shadow-2xl w-[22%]  tansition-all duration-300 m-4">
       <div className="flex justify-center rounded-xl p-3">

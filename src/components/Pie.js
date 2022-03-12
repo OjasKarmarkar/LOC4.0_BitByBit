@@ -1,55 +1,48 @@
+import { data } from 'autoprefixer';
 import React from 'react'
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis,PolarRadiusAxis, Legend } from 'recharts';
 
-function Pie() {
+function Pie(props) {
     
 const data = [
   {
-    "subject": "Math",
-    "A": 120,
-    "B": 110,
-    "fullMark": 150
+    "sport": "Yoga",
+    "days": 0
   },
   {
-    "subject": "Chinese",
-    "A": 98,
-    "B": 130,
-    "fullMark": 150
+    "sport": "Football",
+    "days": 0
   },
   {
-    "subject": "English",
-    "A": 86,
-    "B": 130,
-    "fullMark": 150
+    "sport": "Cricket",
+    "days": 0
   },
   {
-    "subject": "Geography",
-    "A": 99,
-    "B": 100,
-    "fullMark": 150
+    "sport": "Tennis",
+    "days": 0
   },
   {
-    "subject": "Physics",
-    "A": 85,
-    "B": 90,
-    "fullMark": 150
+    "sport": "Badminton",
+    "days": 0
   },
   {
-    "subject": "History",
-    "A": 65,
-    "B": 85,
-    "fullMark": 150
+    "sport": "Swimming",
+    "days": 0
   }
-]
+  ]
+  data.map((item, index) => {
+    data[index].days += props.data[item.sport]
+  })
+  //console.log(props.data)
 
                             
     return(
     <RadarChart outerRadius={90} width={730} height={250} data={data}>
     <PolarGrid />
-    <PolarAngleAxis dataKey="subject" />
-    <PolarRadiusAxis angle={30} domain={[0, 150]} />
-    <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-    <Radar name="Lily" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
+    <PolarAngleAxis dataKey="sport" />
+    <PolarRadiusAxis angle={30} domain={[-1, 'auto']} tickFormatter={e=>e!==-1?e:''}/>
+    <Radar name="Mike" dataKey="days" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+    
     <Legend />
     </RadarChart>
     )
