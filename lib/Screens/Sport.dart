@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:loc/Screens/activitiesRec.dart';
 import 'package:loc/Widgets/wrapper.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../Widgets/helper.dart';
+import 'inf.dart';
 
 class SportDetail extends StatefulWidget {
   const SportDetail({Key? key}) : super(key: key);
@@ -17,6 +19,23 @@ class SportDetail extends StatefulWidget {
 
 class _SportDetailState extends State<SportDetail> {
   Map<String, dynamic> sportDetails = Get.arguments;
+  List<CameraDescription>? cameras;
+
+  void init() async {
+    try {
+      cameras = await availableCameras();
+    } on CameraException catch (e) {
+      print('Error: $e.code\nError Message: $e.message');
+    }
+  }
+
+  @override
+  void initState() {
+    init();
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return themeWrapper(
@@ -42,6 +61,9 @@ class _SportDetailState extends State<SportDetail> {
                 fontSize: 24,
                 fontFamily: GoogleFonts.poppins().fontFamily),
           ),
+          actions: [
+            
+          ],
         ),
         body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -209,7 +231,21 @@ class _SportDetailState extends State<SportDetail> {
                                                     ..shader = linearGradient),
                                             ),
                                             onPressed: () {
-                                              print('Pressed');
+                                              if (sportDetails['name'] !=
+                                                  'Yoga') {
+                                                Get.to(() =>
+                                                    ActivityRecognitionApp() , arguments: [sportDetails['name'] , sportDetails['ex'][index]]);
+                                              } else {
+                                                Get.to(
+                                                  () => InferencePage(
+                                                    cameras: cameras!,
+                                                    title: exrcse['name'],
+                                                    model:
+                                                        "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
+                                                    customModel: exrcse['name'],
+                                                  ),
+                                                );
+                                              }
                                             }),
                                         // SizedBox(
                                         //   height: 10,

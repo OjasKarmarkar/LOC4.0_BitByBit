@@ -25,6 +25,7 @@ class _ProfileState extends State<Profile> {
                 ListTile(
                   contentPadding: EdgeInsets.all(0),
                   onTap: () async {
+                    controller.signOut();
                     // SharedPreferences prefs =
                     //     await SharedPreferences.getInstance();
                     // prefs.clear();

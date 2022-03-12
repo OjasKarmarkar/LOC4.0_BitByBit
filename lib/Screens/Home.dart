@@ -261,7 +261,7 @@ class _HomeState extends State<Home> {
                                                             10.0),
                                                   ),
                                                   elevation: 5,
-                                                  margin: EdgeInsets.all(10),
+                                                  //margin: EdgeInsets.all(10),
                                                 ),
                                                 Positioned(
                                                     bottom: 40,
@@ -295,20 +295,6 @@ class _HomeState extends State<Home> {
                                                       ),
                                                     ))
                                                 // ClipRRect(
-                                                //   // Clip it cleanly.
-                                                //   child: BackdropFilter(
-                                                //       filter: ImageFilter.blur(
-                                                //           sigmaX: 2, sigmaY: 2),
-                                                //       child: Container(
-                                                //         height: 200,
-                                                //         width: 200,
-                                                //         color: Colors.grey
-                                                //             .withOpacity(0.1),
-                                                //         alignment: Alignment.center,
-                                                //         child: Text(controller
-                                                //             .sports[i]['name']),
-                                                //       )),
-                                                // )
                                               ],
                                             )),
                                       );

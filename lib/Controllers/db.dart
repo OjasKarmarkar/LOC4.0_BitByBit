@@ -35,7 +35,8 @@ class Database {
       "sports": [],
       "teams": [],
       "activity": [],
-      "levelXp": 0
+      "levelXp": 0,
+      "streak":0
     });
   }
 
