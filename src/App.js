@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Sports from "./pages/Sports";
-import Rewards from "./components/Rewards";
+import Rewards from "./pages/Rewards";
 import Events from "./pages/Events";
 
 function App() {
