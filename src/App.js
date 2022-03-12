@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Sports from "./pages/Sports";
 import Rewards from "./components/Rewards";
+import Events from "./pages/Events";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sport" element={<Sports />} />
         <Route path="/rewards" element={<Rewards />} />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </>
   );

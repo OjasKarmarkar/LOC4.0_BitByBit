@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import TeamCard from '../components/TeamCard'
+import Chart from '../components/Chart'
+import Pie from '../components/Pie'
 import { motion } from 'framer-motion'
 
 function Home() {
@@ -14,11 +16,11 @@ function Home() {
       </div>
       {/* charts */}
       <div className='w-full h-[40vh] flex'>
-        <div className='h-full w-[60%] scale-y-90 scale-x-95 rounded-2xl bg-blue-500 flex justify-center items-center text-white'>
-          bar chart
+        <div className='h-full w-[60%] scale-y-90 scale-x-95 rounded-2xl bg-white flex justify-center items-center text-white border-2'>
+          <Chart />
         </div>
-        <div className='h-full w-[40%] scale-y-90 scale-x-95 rounded-2xl bg-blue-500 flex justify-center items-center text-white'>
-          pie chart
+        <div className='h-full w-[40%] scale-y-90 scale-x-95 rounded-2xl  bg-white flex justify-center items-center text-white border-2'>
+          <Pie />
         </div>
       </div>
       {/* teams and events */}
