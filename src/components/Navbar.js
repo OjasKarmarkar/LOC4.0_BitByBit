@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { BsFillCameraFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AiFillHome, AiFillGift } from "react-icons/ai";
 import { MdOutlineSportsTennis } from "react-icons/md";
 import { BsFillCalendarEventFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
+import { MdFaceRetouchingNatural } from "react-icons/md";
 
 function Navbar() {
 
@@ -16,7 +16,7 @@ function Navbar() {
     <div className="fixed h-full w-[10vh] border-2 z-10">
       <div className="w-full h-[10%] flex justify-center items-center">
         <Link to={"/"} onClick={()=>{handleClick("profile")}}>
-          <BsFillCameraFill size={55} className="text-blue-700" />
+          <MdFaceRetouchingNatural size={55} className="text-blue-700" />
         </Link>
       </div>
       <div className="w-full h-[80%] flex flex-col justify-start items-center pt-10 space-y-5">
