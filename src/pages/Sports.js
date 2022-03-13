@@ -36,11 +36,22 @@ export default function Sports() {
       </div>
 
       <div className="flex w-full justify-center">
-        <img
-          src={data.img}
-          alt={data.name}
-          className="h-[40%] w-[40%] text-center rounded-2xl drop-shadow-2xl"
-        />
+        <div className="w-1/2 h-full">
+          <img
+            src={data.img}
+            alt={data.name}
+            className="h-[60%] w-[60%] ml-10 text-center rounded-2xl drop-shadow-2xl"
+          />
+        </div>
+        <div className="w-1/2">
+          <div className="  rounded-xl border-2 shadow-xl p-3 h-full ">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+            minus at distinctio ducimus quam vero impedit nemo sunt ea, autem
+            hic aliquid adipisci nostrum fuga cumque culpa? Libero ipsa quam
+            iusto pariatur repudiandae, fugit labore culpa amet nam quibusdam
+            adipisci.
+          </div>
+        </div>
       </div>
       <div className="text-2xl font-medium border-t-2 mt-5">
         <h1 className="py-4">Exercises</h1>
