@@ -54,17 +54,17 @@ class _LoginState extends State<Login> {
                 height: 10,
               ),
               Text(
-                "Loc Hacks!",
+                "Fittastic",
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 24,
+                    fontSize: 30,
                     foreground: Paint()..shader = linearGradient),
               ),
               const SizedBox(
                 height: 20,
               ),
               const Text(
-                "hddgdgdfgjgjg\njgjghjghjgjgjgasasasasasas",
+                "Fitness has\nnever been so fantastic!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
@@ -74,56 +74,6 @@ class _LoginState extends State<Login> {
               const SizedBox(
                 height: 20,
               ),
-
-              // SizedBox(
-              //   width: double.infinity,
-              //   child: Obx(
-              //     () => TextButton(
-              //       child: Padding(
-              //         padding: const EdgeInsets.symmetric(vertical: 4),
-              //         child: controller.showLoading.value
-              //             ? spinkit
-              //             : const Text(
-              //                 'Login',
-              //                 style: TextStyle(
-              //                     color: Colors.white,
-              //                     fontSize: 16,
-              //                     fontWeight: FontWeight.bold),
-              //                 textAlign: TextAlign.end,
-              //               ),
-              //       ),
-              //       style: TextButton.styleFrom(
-              //         shape: RoundedRectangleBorder(
-              //           borderRadius: BorderRadius.circular(5.0),
-              //         ),
-              //         primary: Colors.white,
-              //         backgroundColor: accentColor,
-              //         onSurface: Colors.grey,
-              //       ),
-              //       onPressed: () {
-              //         if (!controller.showLoading.value) {
-              //           if (!phValidated) {
-              //             showSnackbar("Error", " Incorrect Phone Number !");
-              //           } else {
-              //             controller.userExists(ph , true , null , null);
-              //             // controller.signup(
-              //             //     email.text, password.text, name.text);
-              //           }
-              //           // if (!validateEmail(email.text)) {
-              //           //   showSnackbar(
-              //           //       "Error!", "Please enter a valid email !");
-              //           // } else if (password.text.isEmpty) {
-              //           //   showSnackbar("Error", " Password cannot be empty!");
-              //           // } else {
-              //           //   controller.login(email.text, password.text);
-              //           // }
-              //           // Database().createValidateUser();
-              //         }
-              //       },
-              //     ),
-              //   ),
-              // ),
-
               const SizedBox(
                 height: 10,
               ),
@@ -170,26 +120,11 @@ class _LoginState extends State<Login> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'New to Loc?',
-                    style: TextStyle(color: Colors.black),
+                  Text(
+                    'Your ready-to-go Sports coach!',
+                    style:
+                        TextStyle(foreground: Paint()..shader = linearGradient),
                     // textAlign: TextAlign.end,
-                  ),
-                  TextButton(
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(color: accentColor),
-                      // textAlign: TextAlign.end,
-                    ),
-                    style: TextButton.styleFrom(
-                      primary: Colors.white,
-                      backgroundColor: Colors.white,
-                      onSurface: Colors.grey,
-                    ),
-                    onPressed: () {
-                      //  print(Get.isPlatformDarkMode);
-                      Get.toNamed('/signup');
-                    },
                   ),
                 ],
               ),

@@ -28,9 +28,11 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
   ActivityRecognition activityRecognition = ActivityRecognition();
   CountDownController x = new CountDownController();
   int? minCountDown = 0;
+  double no_reward = Get.arguments[1]['duration'] * 0.3;
 
   @override
   void initState() {
+    print(no_reward);
     setState(() {
       minCountDown = exces['duration'] * 60;
     });
@@ -43,6 +45,7 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
   @override
   void dispose() {
     activityStreamSubscription?.cancel();
+    _events.clear();
     super.dispose();
   }
 
@@ -50,9 +53,10 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
     if (Platform.isAndroid) {
       if (await Permission.activityRecognition.request().isGranted) {
         _startTracking();
+         x.start();
       }
 
-      x.start();
+     
     }
 
     // iOS does not
@@ -68,17 +72,35 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
   }
 
   void onData(ActivityEvent activityEvent) {
+    print('hi');
     setState(() {
       _events.add(activityEvent);
     });
+    if (_events
+                .where((element) =>
+                    element.type == ActivityType.STILL ||
+                    element.type == ActivityType.IN_VEHICLE)
+                .toList()
+                .length /
+            10 >=
+        no_reward) {
+      print("F");
+    }
+    ;
   }
 
   void onError(Object error) {
-    // print('ERROR - $error');
+    print('ERROR - $error');
   }
 
   @override
   Widget build(BuildContext context) {
+    print(_events
+        .where((element) =>
+            element.type == ActivityType.STILL ||
+            element.type == ActivityType.IN_VEHICLE)
+        .toList()
+        .length);
     return themeWrapper(
       child: Scaffold(
         appBar: AppBar(
@@ -135,10 +157,10 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
                 strokeCap: StrokeCap.round,
                 textStyle: TextStyle(
                     fontSize: 26.0,
-                      foreground: Paint()..shader = linearGradient,
+                    foreground: Paint()..shader = linearGradient,
                     //color: Colors.black,
                     fontWeight: FontWeight.bold),
-                textFormat: CountdownTextFormat.S,
+                textFormat: CountdownTextFormat.MM_SS,
                 isReverse: false,
                 isReverseAnimation: false,
                 isTimerTextShown: true,
@@ -150,16 +172,22 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
                   print('Countdown Ended');
                 },
               ),
-              ListTile(
-                leading: _activityIcon(_events.last.type),
-                title: Text(
-                    '${_events.last.type.toString().split('.').last} (${_events.last.confidence}%)'),
-                trailing: Text(_events.last.timeStamp
-                    .toString()
-                    .split(' ')
-                    .last
-                    .split('.')
-                    .first),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _activityIcon(_events.last.type),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text('${_events.last.type.toString().split('.').last}',
+                      style: TextStyle()),
+                  // trailing: Text(_events.last.timeStamp
+                  //     .toString()
+                  //     .split(' ')
+                  //     .last
+                  //     .split('.')
+                  //     .first),
+                ],
               )
             ],
           ),

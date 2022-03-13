@@ -61,9 +61,7 @@ class _SportDetailState extends State<SportDetail> {
                 fontSize: 24,
                 fontFamily: GoogleFonts.poppins().fontFamily),
           ),
-          actions: [
-            
-          ],
+          actions: [],
         ),
         body: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
@@ -176,13 +174,6 @@ class _SportDetailState extends State<SportDetail> {
                                             SizedBox(
                                               width: 10,
                                             ),
-                                            Icon(
-                                              FeatherIcons.trendingUp,
-                                              color: Colors.green,
-                                            ),
-                                            SizedBox(
-                                              width: 10,
-                                            ),
                                             Text("(${exrcse['reward']} xp)",
                                                 style: TextStyle(
                                                   fontSize: 16,
@@ -233,8 +224,13 @@ class _SportDetailState extends State<SportDetail> {
                                             onPressed: () {
                                               if (sportDetails['name'] !=
                                                   'Yoga') {
-                                                Get.to(() =>
-                                                    ActivityRecognitionApp() , arguments: [sportDetails['name'] , sportDetails['ex'][index]]);
+                                                Get.to(
+                                                    () =>
+                                                        ActivityRecognitionApp(),
+                                                    arguments: [
+                                                      sportDetails['name'],
+                                                      sportDetails['ex'][index]
+                                                    ]);
                                               } else {
                                                 Get.to(
                                                   () => InferencePage(

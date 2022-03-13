@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +49,7 @@ class _HomeState extends State<Home> {
                   child: controller.photo == ""
                       ? SvgPicture.asset('assets/images/user.svg')
                       : CachedNetworkImage(
+                          placeholder: ((context, url) => Container()),
                           imageUrl: controller.photo!,
                         ),
                 ),
@@ -66,6 +66,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                  
                     SizedBox(
                       height: 10,
                     ),
@@ -304,6 +305,40 @@ class _HomeState extends State<Home> {
                               ],
                             ),
                     ),
+                    // Column(
+                    //   children: [
+                    //     Padding(
+                    //       padding: const EdgeInsets.symmetric(horizontal: 20),
+                    //       child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //         children: [
+                    //           Text(
+                    //             "My Diet",
+                    //             style: TextStyle(fontWeight: FontWeight.bold),
+                    //           ),
+                    //           Icon(FeatherIcons.zap)
+                    //         ],
+                    //       ),
+                    //     ),
+                    //     SizedBox(
+                    //       height: 20,
+                    //     ),
+                    //     Obx(
+                    //       () => SizedBox(
+                    //         height: 200, // card height
+                    //         child: Card(
+                    //           child: Text(controller.myDiet!.meals!.nutrients!.calories!),
+                    //          shape: RoundedRectangleBorder(
+                    //                                 borderRadius:
+                    //                                     BorderRadius.circular(
+                    //                                         10.0),
+                    //                               ),
+                    //                               elevation: 5,
+                    //         ),
+                    //       ),
+                    //     )
+                    //   ],
+                    // ),
                   ],
                 ),
               );

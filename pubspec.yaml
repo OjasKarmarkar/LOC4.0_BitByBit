@@ -62,6 +62,9 @@ dependencies:
   activity_recognition_flutter:
   permission_handler:
   circular_countdown_timer:
+  confetti:
+  http:
+  syncfusion_flutter_charts:
 
 dev_dependencies:
   flutter_test:

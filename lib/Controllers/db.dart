@@ -1,12 +1,32 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
+import 'package:loc/Const/diet_model.dart';
 
 class Database {
   FirebaseAuth auth = FirebaseAuth.instance;
+  final dietUrl = 'https://api-diet-hackathon.herokuapp.com/';
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   FirebaseFunctions functions = FirebaseFunctions.instance;
+
+  Future<Diet> fetchDiet() async {
+  final response = await http
+      .get(Uri.parse(dietUrl));
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return Diet.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
 
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow

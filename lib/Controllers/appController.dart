@@ -3,7 +3,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:intl/intl.dart';
 import 'package:loc/Auth/login.dart';
+import 'package:loc/Const/activityModel.dart';
+import 'package:loc/Const/diet_model.dart';
 import 'package:loc/Controllers/db.dart';
 
 class AppController extends GetxController {
@@ -13,11 +16,16 @@ class AppController extends GetxController {
   String? uid;
   String? name;
   String? photo;
+  Diet? myDiet = Diet();
+  Map<String, dynamic>? userData;
   RxList<dynamic> sports = [].obs;
+  RxList<ActivityData> activity = <ActivityData>[].obs;
 
   @override
   void onInit() {
+    //getUpdateDiet();
     getUID();
+    getUserDetails();
     allSports();
     //getUserDetails();
     super.onInit();
@@ -32,11 +40,18 @@ class AppController extends GetxController {
   //   });
   // }
 
-  // getUserDetails() async {
-  //   try {
-  //      userData = await Database().getUser(uid!);
-  //   } catch (e) {
-  //   }
+  getUserDetails() async {
+    userData = await Database().getUser(uid!);
+
+    for (int i = 0; i < userData?['activity'].length; i++) {
+      var date = DateTime.fromMicrosecondsSinceEpoch(
+          userData?['activity'][i]['history']['date'].microsecondsSinceEpoch);
+      ActivityData data = ActivityData(DateFormat('EEEE').format(date),
+          userData?['activity'][i]['history']['timeSpent']);
+      activity.add(data);
+      // print(activity);
+    }
+  }
 
   // }
 
@@ -55,6 +70,15 @@ class AppController extends GetxController {
         update();
       });
     } catch (e) {}
+  }
+
+  getUpdateDiet() {
+    Database().fetchDiet().then((value) {
+      myDiet = value;
+    }).catchError((e) {
+      print('e');
+    });
+    update();
   }
 
   // saveUser(String uID, String name, String imgurl) async {
