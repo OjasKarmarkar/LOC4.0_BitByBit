@@ -1,5 +1,4 @@
 import React from "react";
-import logo from './trophy3d-removebg-preview.png'
 import { IoIosTrophy } from "react-icons/io";
 
 

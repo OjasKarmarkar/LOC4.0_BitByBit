@@ -6,7 +6,7 @@ function EventCard(props) {
       <div className="flex justify-center rounded-xl p-3">
         <img
           src={props.img}
-          alt="image"
+          alt="eventpicture"
           className="h-[50%] w-[50%] justify-center align-middle py-2 "
         />
       </div>

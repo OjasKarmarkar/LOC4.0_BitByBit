@@ -20,6 +20,7 @@ function SportCard(props) {
   } else if (props.type === "Badminton") {
     image = badminton;
   }
+  // eslint-disable-next-line 
   const [typesport, setType] = useState("");
 
   return (

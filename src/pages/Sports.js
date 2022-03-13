@@ -18,10 +18,6 @@ export default function Sports() {
     console.log(data);
   };
 
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
-
   useEffect(() => {
     let fData = foodData.meals.meals[2]
     setFetchData(fData)
