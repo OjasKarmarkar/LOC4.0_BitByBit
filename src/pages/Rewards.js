@@ -10,8 +10,8 @@ function Rewards() {
   ).toLocaleDateString("en-UK");
   return (
     <div className="flex-col ml-[10vh]">
-      {/* <Logo /> */}
-      <div className="mx-10 my-2 text-2xl font-bold">
+      <Logo />
+      <div className="mx-10 text-2xl font-bold">
         New and Upcoming Rewards
       </div>
 

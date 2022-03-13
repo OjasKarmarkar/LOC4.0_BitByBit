@@ -6,6 +6,7 @@ import "./App.css";
 import Sports from "./pages/Sports";
 import Rewards from "./pages/Rewards";
 import Events from "./pages/Events";
+import Teams from "./pages/Teams"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/sport" element={<Sports />} />
         <Route path="/rewards" element={<Rewards />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/teams" element={<Teams />} />
       </Routes>
     </>
   );
