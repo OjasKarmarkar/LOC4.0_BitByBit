@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import React from 'react'
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis,PolarRadiusAxis, Legend } from 'recharts';
 
@@ -32,6 +31,7 @@ const data = [
   ]
   data.map((item, index) => {
     data[index].days += props.data[item.sport]
+    return 0
   })
   //console.log(props.data)
 
@@ -41,7 +41,7 @@ const data = [
     <PolarGrid />
     <PolarAngleAxis dataKey="sport" />
     <PolarRadiusAxis angle={30} domain={[-1, 'auto']} tickFormatter={e=>e!==-1?e:''}/>
-    <Radar name="Mike" dataKey="days" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+    <Radar dataKey="days" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
     
     <Legend />
     </RadarChart>
