@@ -1,3 +1,14 @@
+# Fit-tastic
+Fitness has never been so fantastic
+
+# Description
+* Our app aims to solve need for having a fitness/social app for both fitness freaks and beginners. 
+* We aim to provide simple workout plans and also provide diet plans for same by our state of art Machine learning model. 
+* Our desktop app provides facilities such as joining Events, teams, hosting Events and see your workout history and analytics very easy. 
+* Our mobile app aims to provide everyone with a smartphone a great experience as it shows all the analytics, events, leaderboads and state of art motion gyro sensor along with  exercise detection model to guess your workout using camers.
+
+# Our web app is deployed and can be checked from here - [Link]("")
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
