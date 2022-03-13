@@ -72,7 +72,6 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
   }
 
   void onData(ActivityEvent activityEvent) {
-    print('hi');
     setState(() {
       _events.add(activityEvent);
     });
@@ -84,7 +83,6 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
                 .length /
             10 >=
         no_reward) {
-      print("F");
     }
     ;
   }
@@ -95,12 +93,6 @@ class _ActivityRecognitionAppState extends State<ActivityRecognitionApp> {
 
   @override
   Widget build(BuildContext context) {
-    print(_events
-        .where((element) =>
-            element.type == ActivityType.STILL ||
-            element.type == ActivityType.IN_VEHICLE)
-        .toList()
-        .length);
     return themeWrapper(
       child: Scaffold(
         appBar: AppBar(

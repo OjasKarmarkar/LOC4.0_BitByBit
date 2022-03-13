@@ -27,7 +27,7 @@ class BndBox extends StatefulWidget {
 
 class _BndBoxState extends State<BndBox> {
   List<dynamic> _inputArr = [];
-  String _label = 'Wrong Pose';
+  String _label = '';
   double _percent = 0;
   double _counter = 0;
 

@@ -32,7 +32,7 @@ class _ProfileState extends State<Profile> {
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: BouncingScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -90,7 +90,7 @@ class _ProfileState extends State<Profile> {
                   ListTile(
                     contentPadding: EdgeInsets.all(0),
                     onTap: () async {
-                      controller.signOut();
+                      // controller.signOut();
                       // SharedPreferences prefs =
                       //     await SharedPreferences.getInstance();
                       // prefs.clear();
@@ -115,7 +115,7 @@ class _ProfileState extends State<Profile> {
                   ListTile(
                     contentPadding: EdgeInsets.all(0),
                     onTap: () async {
-                      controller.signOut();
+                    
                       // SharedPreferences prefs =
                       //     await SharedPreferences.getInstance();
                       // prefs.clear();
