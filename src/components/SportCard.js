@@ -5,6 +5,7 @@ import swimming from '../static/swimming.png'
 import yoga from '../static/yoga.png'
 import football from '../static/football.png'
 import { TiArrowRight } from "react-icons/ti";
+import { Link } from 'react-router-dom'
 
 function SportCard(props) {
   let image
@@ -24,7 +25,7 @@ function SportCard(props) {
         <img src={image} alt="badminton" className='absolute -z-10 opacity-25 -left-5 -bottom-5 w-[90%]'/>
         <div className='h-full w-full relative'>
           <p className='absolute top-5 left-5 text-5xl font-bold'>{props.type}</p>
-          <p className='absolute bottom-5 right-10 text-3xl font-semibold flex items-end group'>View <TiArrowRight className='group-hover:scale-150 transition-transform'/> </p>
+          <p className='absolute bottom-5 right-10 text-3xl font-semibold flex items-end group'> <Link to="/sport" type={props.type}>View <TiArrowRight className='group-hover:scale-150 transition-transform'/></Link>  </p>
         </div>
     </div>
   )

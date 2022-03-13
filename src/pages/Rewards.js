@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../components/Card'
+import Logo from '../components/Logo';
 
 function Rewards() {
   var fullDate = new Date()
@@ -7,6 +8,7 @@ function Rewards() {
   var nextDate = new Date(new Date().getTime()+(7*24*60*60*1000)).toLocaleDateString('en-UK')
   return (
     <div className="flex-col ml-[10vh]">
+      <Logo />
       <div className='mx-10 my-2 text-2xl font-bold'>
         New and Upcoming Rewards
       </div>

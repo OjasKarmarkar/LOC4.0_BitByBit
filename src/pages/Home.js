@@ -6,6 +6,7 @@ import SportCard from '../components/SportCard'
 import { motion } from 'framer-motion'
 import { getDoc, doc } from 'firebase/firestore'
 import db from '../firebase/Firebase'
+import Logo from '../components/Logo'
 
 function Home() {
 
@@ -59,9 +60,7 @@ function Home() {
   return (
     <div className='ml-[10vh] w-[calc(100vw-100px)] overflow-x-hidden h-full flex flex-col overflow-auto'>
       {/* logo */}
-      <div className='w-full h-12 flex justify-center items-center space-x-4 text-2xl font-sans'>
-        logo
-      </div>
+      <Logo />
       {/* charts */}
       <div className='w-full h-[40vh] flex'>
         <div className='h-full w-[60%] scale-y-90 scale-x-95 rounded-2xl bg-white flex justify-center items-center text-white border-2'>
